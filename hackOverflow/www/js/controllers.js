@@ -1,6 +1,6 @@
 angular.module('hackOverflow.controllers', [])
 
-.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, User, Posts, $ionicHistory, $state) {
+.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, User, Posts, $ionicHistory, $state, $ionicViewSwitcher) {
   // Set current signed in user
   $scope.username = User.getUser();
 
@@ -14,8 +14,9 @@ angular.module('hackOverflow.controllers', [])
   };
   $scope.myGoBack = function() {
     if ($ionicHistory.currentTitle() === "Post" && $ionicHistory.backTitle() === "Create A Post") {
-     $state.go('app.posts');
-     $ionicHistory.clearHistory();
+      $ionicViewSwitcher.nextDirection('back');
+      $state.go('app.posts');
+      $ionicHistory.clearHistory();
     } else {
       $ionicHistory.goBack();
     }

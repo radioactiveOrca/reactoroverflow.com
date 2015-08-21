@@ -2,8 +2,6 @@ angular.module('hackOverflow.search', [])
 
 .controller('SearchCtrl', function($scope, $state, Posts) {
   var word = $state.params.query;
-
-
   $scope.getPosts = function() {
     $scope.data = {};
     Posts.searchPosts(word, function(results){
