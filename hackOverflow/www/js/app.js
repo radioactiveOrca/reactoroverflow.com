@@ -15,8 +15,8 @@ angular.module('hackOverflow', [
   'hackOverflow.tags',
   'hackOverflow.create',
   'hackOverflow.edit',
+  'hackOverflow.search',
   'hackOverflow.postTag',
-  'hackOverflow.pairs',
   'hackOverflow.profile'
 ])
 
@@ -109,12 +109,12 @@ angular.module('hackOverflow', [
     }
   })
 
-  .state('app.pairs', {
-    url: '/pairs',
+  .state('app.search', {
+    url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/pairs.html',
-        controller: 'PairsCtrl'
+        templateUrl: 'templates/posts-view.html',
+        controller: 'SearchCtrl'
       }
     }
   })
