@@ -1,6 +1,6 @@
 angular.module('hackOverflow.controllers', [])
 
-.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, User, Posts, $ionicHistory, $state, $ionicViewSwitcher) {
+.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, User, Posts, $ionicHistory, $state, $ionicViewSwitcher, $ionicSideMenuDelegate) {
   // Set current signed in user
   $scope.username = User.getUser();
 
@@ -8,7 +8,8 @@ angular.module('hackOverflow.controllers', [])
 
 
   $scope.submitSearch = function(word) {
-    $state.go('app.search', {query: word})
+    $ionicSideMenuDelegate.toggleLeft();
+    $state.go('app.search', {query: word});
     $scope.data.keywords = "";
 
   };
