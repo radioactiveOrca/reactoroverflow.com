@@ -136,6 +136,7 @@ Create Form
 
 
 .post-content {
+  resize: none;
   height: 30vh;
 }
 
@@ -144,7 +145,7 @@ Create Form
 Individual post view
 
 *****************************/
-.post textarea {
+.comment textarea {
   resize: none;
   height: 3em;
 }
