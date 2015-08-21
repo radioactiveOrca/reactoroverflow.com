@@ -110,7 +110,7 @@ angular.module('hackOverflow', [
   })
 
   .state('app.search', {
-    url: '/search',
+    url: '/search/:query',
     views: {
       'menuContent': {
         templateUrl: 'templates/posts-view.html',
