@@ -81,7 +81,6 @@ angular.module('hackOverflow.post', [])
 
   $scope.upVoteComment = function(comment, commentId) {
     //use commentID to send the user into the comment.upVotes array
-    console.log("clicked")
     if (comment.isUpvoted) {
       Comments.downVote(commentId).then(function(resp) {
         if (resp.status === 204) {
