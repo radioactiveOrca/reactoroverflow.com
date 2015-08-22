@@ -1,6 +1,6 @@
 <ion-view view-title="Posts">
   <ion-content>
-    <div ng-repeat="post in data.posts | orderBy: '-votes'">
+    <div ng-repeat="post in data.posts track by $index | orderBy: '-votes'">
       <div class="card postcard">
         <div class="item item-avatar">
           <img ng-src="{{post._source.authorAvatarUrl || 'img/avatar.jpg'}}">
@@ -10,7 +10,7 @@
             <a ui-sref="profileTabs.main({username: post._source.author})">{{post._source.authorName || '@' + post._source.author}}</a>
           </div>
         </div> 
-        <div class="txt" ng-bind-html='post._source.contentNoTags | limitTo: 100'>
+        <div class="txt" ng-bind-html='post._source.content | limitTo: 100'>
         </div>
         <p>
          <span class="subdued">{{post.votes || 0}} Likes</span>

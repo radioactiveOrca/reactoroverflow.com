@@ -1,6 +1,6 @@
 angular.module('hackOverflow.controllers', [])
 
-.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, User, Posts, $ionicHistory, $state) {
+.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $timeout, User, Posts, $ionicHistory, $state, $ionicViewSwitcher, $ionicSideMenuDelegate) {
   // Set current signed in user
   $scope.username = User.getUser();
 
@@ -8,14 +8,16 @@ angular.module('hackOverflow.controllers', [])
 
 
   $scope.submitSearch = function(word) {
-    $state.go('app.search', {query: word})
+    $ionicSideMenuDelegate.toggleLeft();
+    $state.go('app.search', {query: word});
     $scope.data.keywords = "";
 
   };
   $scope.myGoBack = function() {
     if ($ionicHistory.currentTitle() === "Post" && $ionicHistory.backTitle() === "Create A Post") {
-     $state.go('app.posts');
-     $ionicHistory.clearHistory();
+      $ionicViewSwitcher.nextDirection('back');
+      $state.go('app.posts');
+      $ionicHistory.clearHistory();
     } else {
       $ionicHistory.goBack();
     }

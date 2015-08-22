@@ -199,6 +199,10 @@ All Posts
   padding-left: 15px;
 }
 
+.postcard h1, .postcard h2 {
+  font-size: 1.25em;
+}
+
 
 .postcard .title a{
   font-size: 1.25em;
